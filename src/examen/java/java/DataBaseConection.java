@@ -10,15 +10,23 @@ public class DataBaseConection {
     private static DataBaseConection instance;
     private Connection conexion;
 
+    private DataBaseConection() {
+        System.out.println("Conectando a la base de Datos");
+    }
+
     public static DataBaseConection getInstance() {
         if (instance == null) {
             instance = new DataBaseConection();
-            instance.getConnection();
+        instance.updateConecction();
         }
         return instance;
     }
 
-    private void getConnection() {
+    public Connection getConexion() {
+        return conexion;
+    }
+
+    private void updateConecction() {
         String host = "jdbc:mysql://localhost:3306/";
         String user = "campus2023";
         String password = "campus2023";

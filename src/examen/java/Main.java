@@ -1,6 +1,9 @@
 package examen.java;
 
-import examen.java.java.DataBaseConection;
+import java.util.List;
+
+import examen.java.java.DTO.Clientes.Clientes;
+import examen.java.java.DTO.Clientes.ClientesDTO;
 
 /**
  *
@@ -8,8 +11,9 @@ import examen.java.java.DataBaseConection;
  */
 public class Main {
     public static void main(String[] args) {
-        DataBaseConection db = DataBaseConection.getInstance();
+        ClientesDTO clientesDTO = ClientesDTO.getInstance();
+        List<Clientes> clientesList = clientesDTO.getLista();
 
-        db.test();
+        clientesList.forEach(i->System.out.println(i));
     }
 }
