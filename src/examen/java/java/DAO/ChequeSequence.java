@@ -1,18 +1,18 @@
 package examen.java.java.DAO;
 
 public class ChequeSequence {
-    private int next_val;
+    private int nextVal;
 
-    public ChequeSequence(int next_val) {
-        this.next_val = next_val;
+    public ChequeSequence(int nextVal) {
+        this.nextVal = nextVal;
     }
 
     public int getNext_val() {
-        return next_val;
+        return nextVal;
     }
 
     @Override
     public String toString() {
-        return "Valor Siguiente: " + next_val;
+        return "Valor Siguiente: " + nextVal;
     }
 }

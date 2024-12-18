@@ -78,7 +78,7 @@ public class CuentasDTO extends ConnectionDTO<Cuentas> {
             pstm.setDouble(4,cuenta.getLimiteSaldo());
             pstm.setTimestamp(5,cuenta.getFechaApertura());
             pstm.setString(6,cuenta.getEstado());
-            pstm.setInt(7,cuenta.getId());
+            pstm.setInt(7,cuenta.getIdCuenta());
         } catch (SQLException e) {
             System.out.println("Error al actualizar la informacion de la tabla cuentas " + e.getStackTrace());
         }

@@ -3,7 +3,7 @@ package examen.java.java.DTO.Clientes;
 import java.sql.Timestamp;
 
 public class Clientes {
-    private int id;
+    private int idCliente;
     private String identificacion;
     private String nombre;
     private String apellido;
@@ -14,9 +14,9 @@ public class Clientes {
     private Timestamp fechaRegistro;
     private Timestamp ultimaActividad;
     
-    public Clientes(int id, String identificacion, String nombre, String apellido, String direccion, String telefono,
+    public Clientes(int idCliente, String identificacion, String nombre, String apellido, String direccion, String telefono,
             String correo, String estado, Timestamp fechaRegistro, Timestamp ultimaActividad) {
-        this.id = id;
+        this.idCliente = idCliente;
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -28,12 +28,12 @@ public class Clientes {
         this.ultimaActividad = ultimaActividad;
     }
 
-    public int getId() {
-        return id;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getIdentificacion() {
@@ -110,6 +110,6 @@ public class Clientes {
 
     @Override
     public String toString() {
-        return "ID Cliente : " + id + ", Identificacion: " + identificacion + ", Nombre: " + nombre + ", Apellido: " + apellido + ", Direccion: " + direccion + ", Telefono: " + telefono + ", Correo: " + correo + ", Estado: " + estado + ", Fecha de registro: " + fechaRegistro + ", Ultima actividad: " + ultimaActividad;
+        return "ID Cliente : " + idCliente + ", Identificacion: " + identificacion + ", Nombre: " + nombre + ", Apellido: " + apellido + ", Direccion: " + direccion + ", Telefono: " + telefono + ", Correo: " + correo + ", Estado: " + estado + ", Fecha de registro: " + fechaRegistro + ", Ultima actividad: " + ultimaActividad;
     }
 }

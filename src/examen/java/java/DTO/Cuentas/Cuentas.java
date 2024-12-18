@@ -3,7 +3,7 @@ package examen.java.java.DTO.Cuentas;
 import java.sql.Timestamp;
 
 public class Cuentas {
-    private int id;
+    private int idCuenta;
     private int idCliente;
     private String tipo;
     private double saldo;
@@ -11,9 +11,9 @@ public class Cuentas {
     private Timestamp fechaApertura;
     private String estado;
     
-    public Cuentas(int id, int idCliente, String tipo, double saldo, double limiteSaldo, Timestamp fechaApertura,
+    public Cuentas(int idCuenta, int idCliente, String tipo, double saldo, double limiteSaldo, Timestamp fechaApertura,
             String estado) {
-        this.id = id;
+        this.idCuenta = idCuenta;
         this.idCliente = idCliente;
         this.tipo = tipo;
         this.saldo = saldo;
@@ -22,12 +22,12 @@ public class Cuentas {
         this.estado = estado;
     }
 
-    public int getId() {
-        return id;
+    public int getIdCuenta() {
+        return idCuenta;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCuenta(int idCuenta) {
+        this.idCuenta = idCuenta;
     }
 
     public int getIdCliente() {
@@ -80,6 +80,6 @@ public class Cuentas {
 
     @Override
     public String toString() {
-        return "ID cuenta: " + id + ", ID Cliente" + idCliente + ", Tipo: " + tipo + ", Saldo: " + saldo + ", Saldo limite: " + limiteSaldo + ", Fecha creacion: " + fechaApertura + ", Estado: " + estado;
+        return "ID Cuenta: " + idCuenta + ", ID Cliente" + idCliente + ", Tipo: " + tipo + ", Saldo: " + saldo + ", Saldo limite: " + limiteSaldo + ", Fecha creacion: " + fechaApertura + ", Estado: " + estado;
     }
 }

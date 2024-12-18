@@ -29,17 +29,19 @@ public class ChequeSequenceDAO extends ConnectionDAO{
 
     @Override
     public List<ChequeSequence> getLista() {
-        try {
-            ResultSet res = conexion.getConexion().createStatement().executeQuery("SELECT * FROM cheque_sequence");
-            while (res.next()) {
-                chequeList.add(
-                    new ChequeSequence(
-                        res.getInt("next_val")
-                    )
-                );
+        if (chequeList.size() < 1) {
+            try {
+                ResultSet res = conexion.getConexion().createStatement().executeQuery("SELECT * FROM cheque_sequence");
+                while (res.next()) {
+                    chequeList.add(
+                        new ChequeSequence(
+                            res.getInt("next_val")
+                        )
+                    );
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al conseguir la informacion de la tabla clientes " + e.getStackTrace());
             }
-        } catch (SQLException e) {
-            System.out.println("Error al conseguir la informacion de la tabla clientes " + e.getStackTrace());
         }
         return chequeList;
     }
