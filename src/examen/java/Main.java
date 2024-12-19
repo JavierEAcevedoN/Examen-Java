@@ -26,7 +26,7 @@ public class Main {
                     break;
 
                 case 2:
-                    CRUDTransacciones.listarClientesSinActividad();
+                    CRUDTransacciones.mensaje();
                     break;
                 
                 case 3:

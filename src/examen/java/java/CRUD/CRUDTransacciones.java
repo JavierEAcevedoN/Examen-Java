@@ -2,7 +2,6 @@ package examen.java.java.CRUD;
 
 import java.util.Scanner;
 
-import examen.java.java.Funciones.ChequesFunciones;
 import examen.java.java.Funciones.TransaccionesFunciones;
 
 public class CRUDTransacciones {
