@@ -100,6 +100,6 @@ public class Transacciones {
 
     @Override
     public String toString() {
-        return "ID Transaccion: " + idTransaccion + ", ID Cuenta: " + idCuenta + ", Tipo: " + tipo + ", monto: " + monto + ", Fecha de Registro: " + fechaRegistro + ", Referencia: " + referencia + ", Saldo Anterior: " + saldoAnterior + ", Saldo nuevo: " + saldoNuevo + ", Estado: " + estado;
+        return "ID Transaccion: " + idTransaccion + "\n ID Cuenta: " + idCuenta + "\n Tipo: " + tipo + "\n monto: " + monto + "\n Fecha de Registro: " + fechaRegistro + "\n Referencia: " + referencia + "\n Saldo Anterior: " + saldoAnterior + "\n Saldo nuevo: " + saldoNuevo + "\n Estado: " + estado;
     }
 }

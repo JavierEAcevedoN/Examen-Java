@@ -69,6 +69,7 @@ public class ClientesDTO extends ConnectionDTO<Clientes> {
             pstm.setString(7,cliente.getEstado());
             pstm.setTimestamp(8,cliente.getFechaRegistro());
             pstm.setTimestamp(9,cliente.getUltimaActividad());
+            updateP();
         } catch (SQLException e) {
             System.out.println("Error al guardar la informacion de la tabla clientes " + e.getStackTrace());
         }
@@ -88,6 +89,7 @@ public class ClientesDTO extends ConnectionDTO<Clientes> {
             pstm.setTimestamp(8,cliente.getFechaRegistro());
             pstm.setTimestamp(9,cliente.getUltimaActividad());
             pstm.setInt(10,cliente.getIdCliente());
+            updateP();
         } catch (SQLException e) {
             System.out.println("Error al actualizar la informacion de la tabla clientes " + e.getStackTrace());
         }
@@ -98,6 +100,7 @@ public class ClientesDTO extends ConnectionDTO<Clientes> {
             PreparedStatement pstm = conexion.getConexion().prepareStatement("UPDATE clientes SET estado=? WHERE id is ?;");
             pstm.setString(1,cliente.getEstado());
             pstm.setInt(2,cliente.getIdCliente());
+            updateP();
         } catch (SQLException e) {
             System.out.println("Error al actualizar el estado del cliente de la tabla clientes " + e.getStackTrace());
         }

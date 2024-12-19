@@ -80,6 +80,6 @@ public class Cuentas {
 
     @Override
     public String toString() {
-        return "ID Cuenta: " + idCuenta + ", ID Cliente" + idCliente + ", Tipo: " + tipo + ", Saldo: " + saldo + ", Saldo limite: " + limiteSaldo + ", Fecha creacion: " + fechaApertura + ", Estado: " + estado;
+        return "ID Cuenta: " + idCuenta + "\n ID Cliente" + idCliente + "\n Tipo: " + tipo + "\n Saldo: " + saldo + "\n Saldo limite: " + limiteSaldo + "\n Fecha creacion: " + fechaApertura + "\n Estado: " + estado;
     }
 }

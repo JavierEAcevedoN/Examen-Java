@@ -56,35 +56,37 @@ public class TransaccionesDTO extends ConnectionDTO<Transacciones> {
     }
 
     @Override
-    public void guardar(Transacciones cliente) {
+    public void guardar(Transacciones transaccion) {
         try {
             PreparedStatement pstm = conexion.getConexion().prepareStatement("INSERT INTO transacciones(id_cuenta,tipo,monto,fecha,referencia,saldo_anterior,saldo_nuevo,estado) VALUES(?,?,?,?,?,?,?,?);");
-            pstm.setInt(1,cliente.getIdCuenta());
-            pstm.setString(2,cliente.getTipo());
-            pstm.setDouble(3,cliente.getMonto());
-            pstm.setTimestamp(4,cliente.getFechaRegistro());
-            pstm.setString(5,cliente.getReferencia());
-            pstm.setDouble(6,cliente.getSaldoAnterior());
-            pstm.setDouble(7,cliente.getSaldoNuevo());
-            pstm.setString(8,cliente.getEstado());
+            pstm.setInt(1,transaccion.getIdCuenta());
+            pstm.setString(2,transaccion.getTipo());
+            pstm.setDouble(3,transaccion.getMonto());
+            pstm.setTimestamp(4,transaccion.getFechaRegistro());
+            pstm.setString(5,transaccion.getReferencia());
+            pstm.setDouble(6,transaccion.getSaldoAnterior());
+            pstm.setDouble(7,transaccion.getSaldoNuevo());
+            pstm.setString(8,transaccion.getEstado());
+            updateP();
         } catch (SQLException e) {
             System.out.println("Error al guardar la informacion de la tabla transacciones " + e.getStackTrace());
         }
     }
 
     @Override
-    public void actualizar(Transacciones cliente) {
+    public void actualizar(Transacciones transaccion) {
         try {
             PreparedStatement pstm = conexion.getConexion().prepareStatement("UPDATE transacciones SET id_cuenta=?,tipo=?,monto=?,fecha=?,referencia=?,saldo_anterior=?,saldo_nuevo=?,estado=? WHERE id=?;");
-            pstm.setInt(1,cliente.getIdCuenta());
-            pstm.setString(2,cliente.getTipo());
-            pstm.setDouble(3,cliente.getMonto());
-            pstm.setTimestamp(4,cliente.getFechaRegistro());
-            pstm.setString(5,cliente.getReferencia());
-            pstm.setDouble(6,cliente.getSaldoAnterior());
-            pstm.setDouble(7,cliente.getSaldoNuevo());
-            pstm.setString(8,cliente.getEstado());
-            pstm.setInt(9,cliente.getIdTransaccion());
+            pstm.setInt(1,transaccion.getIdCuenta());
+            pstm.setString(2,transaccion.getTipo());
+            pstm.setDouble(3,transaccion.getMonto());
+            pstm.setTimestamp(4,transaccion.getFechaRegistro());
+            pstm.setString(5,transaccion.getReferencia());
+            pstm.setDouble(6,transaccion.getSaldoAnterior());
+            pstm.setDouble(7,transaccion.getSaldoNuevo());
+            pstm.setString(8,transaccion.getEstado());
+            pstm.setInt(9,transaccion.getIdTransaccion());
+            updateP();
         } catch (SQLException e) {
             System.out.println("Error al actualizar la informacion de la tabla transacciones " + e.getStackTrace());
         }

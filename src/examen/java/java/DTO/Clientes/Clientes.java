@@ -110,6 +110,6 @@ public class Clientes {
 
     @Override
     public String toString() {
-        return "ID Cliente : " + idCliente + ", Identificacion: " + identificacion + ", Nombre: " + nombre + ", Apellido: " + apellido + ", Direccion: " + direccion + ", Telefono: " + telefono + ", Correo: " + correo + ", Estado: " + estado + ", Fecha de registro: " + fechaRegistro + ", Ultima actividad: " + ultimaActividad;
+        return "ID Cliente : " + idCliente + "\n Identificacion: " + identificacion + "\n Nombre: " + nombre + "\n Apellido: " + apellido + "\n Direccion: " + direccion + "\n Telefono: " + telefono + "\n Correo: " + correo + "\n Estado: " + estado + "\n Fecha de registro: " + fechaRegistro + "\n Ultima actividad: " + ultimaActividad;
     }
 }
