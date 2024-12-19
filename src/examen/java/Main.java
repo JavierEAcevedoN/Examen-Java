@@ -1,17 +1,8 @@
 package examen.java;
-
-import java.util.List;
+import java.util.Scanner;
 
 import examen.java.java.CRUD.CRUDCheques;
-import examen.java.java.DTO.Cheques.Cheques;
-import examen.java.java.DTO.Cheques.ChequesDTO;
-import examen.java.java.DTO.Clientes.Clientes;
-import examen.java.java.DTO.Clientes.ClientesDTO;
-import examen.java.java.DTO.Cuentas.Cuentas;
-import examen.java.java.DTO.Cuentas.CuentasDTO;
-import examen.java.java.DTO.Transacciones.Transacciones;
-import examen.java.java.DTO.Transacciones.TransaccionesDTO;
-import examen.java.java.Funciones.ChequesFunciones;
+import examen.java.java.CRUD.CRUDTransacciones;
 
 /**
  *
@@ -19,27 +10,32 @@ import examen.java.java.Funciones.ChequesFunciones;
  */
 public class Main {
     public static void main(String[] args) {
-        CRUDCheques.mensaje();
-/* 
-        ClientesDTO clientesDTO = ClientesDTO.getInstance();
-        List<Clientes> clientesList = clientesDTO.getLista();
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            int opcion = 0;
+            System.out.println("Bienvenido");
+            System.out.println("Elige una opcion para continuar: ");
+            System.out.println("(1) CRUD Cheques");
+            System.out.println("(2) CRUD transacciones");
+            System.out.print("(3) Salir: ");
+            opcion = input.nextInt();
 
-        clientesList.forEach(i->System.out.println(i));
+            switch (opcion) {
+                case 1:
+                    CRUDCheques.mensaje();
+                    break;
 
-        CuentasDTO cuentaDTO = CuentasDTO.getInstance();
-        List<Cuentas> cuentasList = cuentaDTO.getLista();
-
-        cuentasList.forEach(i->System.out.println(i));
-
-        TransaccionesDTO transaccionesDTO = TransaccionesDTO.getInstance();
-        List<Transacciones> transaccionesList = transaccionesDTO.getLista();
-
-        transaccionesList.forEach(i->System.out.println(i));
-
-        ChequesDTO chequesDTO = ChequesDTO.getInstance();
-        List<Cheques> chequesList = chequesDTO.getLista();
-
-        chequesList.forEach(i->System.out.println(i));
-         */
+                case 2:
+                    CRUDTransacciones.listarClientesSinActividad();
+                    break;
+                
+                case 3:
+                    return;
+            
+                default:
+                    System.out.println("esa opcion no es valida");
+                    break;
+            }
+        }
     }
 }
