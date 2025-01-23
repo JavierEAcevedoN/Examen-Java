@@ -1,4 +1,4 @@
-package examen.java.java.DTO.Clientes;
+package examen.java.model.DTO.Imp;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,19 +6,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import examen.java.java.ConnectionDTO;
+import examen.java.model.DTO.ConnectionDTO;
+import examen.java.model.Entities.Clientes;
 
-public class ClientesDTO extends ConnectionDTO<Clientes> {
-    private static ClientesDTO instance;
+public class ClientesDTOImp extends ConnectionDTO<Clientes> {
+    private static ClientesDTOImp instance;
     private List<Clientes> clientesList = new ArrayList<>();
 
-    private ClientesDTO() {
+    private ClientesDTOImp() {
         super();
     }
 
-    public static ClientesDTO getInstance() {
+    public static ClientesDTOImp getInstance() {
         if (instance == null) {
-            instance = new ClientesDTO();
+            instance = new ClientesDTOImp();
         }
         return instance;
     }

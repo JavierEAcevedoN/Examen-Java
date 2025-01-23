@@ -1,4 +1,6 @@
-package examen.java.java;
+package examen.java.model.DTO;
+
+import examen.java.model.DAO.ConnectionDAO;
 
 public abstract class ConnectionDTO<T> extends ConnectionDAO {
     public ConnectionDTO() {

@@ -1,4 +1,4 @@
-package examen.java.java.DTO.Cuentas;
+package examen.java.model.DTO.Imp;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,19 +6,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import examen.java.java.ConnectionDTO;
+import examen.java.model.DTO.ConnectionDTO;
+import examen.java.model.Entities.Cuentas;
 
-public class CuentasDTO extends ConnectionDTO<Cuentas> {
-    private static CuentasDTO instance;
+public class CuentasDTOImp extends ConnectionDTO<Cuentas> {
+    private static CuentasDTOImp instance;
     private List<Cuentas> cuentasList = new ArrayList<>();
 
-    private CuentasDTO() {
+    private CuentasDTOImp() {
         super();
     }
 
-    public static CuentasDTO getInstance() {
+    public static CuentasDTOImp getInstance() {
         if (instance == null) {
-            instance = new CuentasDTO();
+            instance = new CuentasDTOImp();
         }
         return instance;
     }
@@ -63,6 +64,7 @@ public class CuentasDTO extends ConnectionDTO<Cuentas> {
             pstm.setDouble(4,cuenta.getLimiteSaldo());
             pstm.setTimestamp(5,cuenta.getFechaApertura());
             pstm.setString(6,cuenta.getEstado());
+            pstm.execute();
             updateP();
         } catch (SQLException e) {
             System.out.println("Error al guardar la informacion de la tabla cuentas " + e.getStackTrace());
@@ -80,6 +82,7 @@ public class CuentasDTO extends ConnectionDTO<Cuentas> {
             pstm.setTimestamp(5,cuenta.getFechaApertura());
             pstm.setString(6,cuenta.getEstado());
             pstm.setInt(7,cuenta.getIdCuenta());
+            pstm.execute();
             updateP();
         } catch (SQLException e) {
             System.out.println("Error al actualizar la informacion de la tabla cuentas " + e.getStackTrace());

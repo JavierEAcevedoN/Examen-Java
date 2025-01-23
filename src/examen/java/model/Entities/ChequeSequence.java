@@ -1,4 +1,4 @@
-package examen.java.java.DAO;
+package examen.java.model.Entities;
 
 public class ChequeSequence {
     private int nextVal;

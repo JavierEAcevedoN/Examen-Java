@@ -1,4 +1,4 @@
-package examen.java.java.DTO.Cheques;
+package examen.java.model.DTO.Imp;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,19 +6,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import examen.java.java.ConnectionDTO;
+import examen.java.model.DTO.ConnectionDTO;
+import examen.java.model.Entities.Cheques;
 
-public class ChequesDTO extends ConnectionDTO<Cheques> {
-    private static ChequesDTO instance;
+public class ChequesDTOImp extends ConnectionDTO<Cheques> {
+    private static ChequesDTOImp instance;
     private List<Cheques> chequesList = new ArrayList<>();
 
-    private ChequesDTO() {
+    private ChequesDTOImp() {
         super();
     }
 
-    public static ChequesDTO getInstance() {
+    public static ChequesDTOImp getInstance() {
         if (instance == null) {
-            instance = new ChequesDTO();
+            instance = new ChequesDTOImp();
         }
         return instance;
     }
@@ -65,7 +66,7 @@ public class ChequesDTO extends ConnectionDTO<Cheques> {
     @Override
     public void guardar(Cheques cheque) {
         try {
-            PreparedStatement pstm = conexion.getConexion().prepareStatement("UPDATE cheques SET numero_cheque=?,id_cuenta=?,beneficiario=?,monto=?,monto_letras=?,prioridad=?,firma_digital=?,estado=?,razon_rechazo=?,fecha_emision=?,fecha_proceso=?,cobrado=?,cuenta_saldo_momento=?,fecha_modificacion=?,usuario_modificacion=? WHERE id=?;");
+            PreparedStatement pstm = conexion.getConexion().prepareStatement("INSERT INTO cheques(numero_cheque,id_cuenta,beneficiario,monto,monto_letras,prioridad,firma_digital,estado,razon_rechazo,fecha_emision,fecha_proceso,cobrado,cuenta_saldo_momento,fecha_modificacion,usuario_modificacion) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             pstm.setString(1,cheque.getNumeroCheque());
             pstm.setInt(2,cheque.getIdCuenta());
             pstm.setString(3,cheque.getBeneficiario());
@@ -81,6 +82,7 @@ public class ChequesDTO extends ConnectionDTO<Cheques> {
             pstm.setDouble(13,cheque.getCuentaSaldomomento());
             pstm.setTimestamp(14,cheque.getFechaModificacion());
             pstm.setString(15,cheque.getUsuarioModificacion());
+            pstm.execute();
             updateP();
         } catch (SQLException e) {
             System.out.println("Error al guardar la informacion de la tabla cheques " + e.getStackTrace());
@@ -107,6 +109,7 @@ public class ChequesDTO extends ConnectionDTO<Cheques> {
             pstm.setTimestamp(14,cheque.getFechaModificacion());
             pstm.setString(15,cheque.getUsuarioModificacion());
             pstm.setInt(16,cheque.getIdCheque());
+            pstm.execute();
             updateP();
         } catch (SQLException e) {
             System.out.println("Error al actualizar la informacion de la tabla cuentas " + e.getStackTrace());

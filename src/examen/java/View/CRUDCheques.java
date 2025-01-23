@@ -1,8 +1,8 @@
-package examen.java.java.CRUD;
+package examen.java.View;
 
 import java.util.Scanner;
 
-import examen.java.java.Funciones.ChequesFunciones;
+import examen.java.Controller.ChequesFunciones;
 
 public class CRUDCheques {
     private static ChequesFunciones chequesFunciones;
@@ -18,19 +18,25 @@ public class CRUDCheques {
             System.out.println("Elige una opcion para continuar: ");
             System.out.println("(1) Emitir cheque");
             System.out.println("(2) Listar cheques de un cliente especifico");
-            System.out.print("(3) Salir: ");
+            System.out.println("(3) Listar cheques emitidos");
+            System.out.print("(4) Salir: ");
             opcion = input.nextInt();
 
             switch (opcion) {
                 case 1:
-                    // emitirCheque();
+                    emitirCheque();
                     break;
 
                 case 2:
-                    listarCheques();
+                    listarChequesCliente();
                     break;
                 
                 case 3:
+                    listarChequesEmitidos();
+                    break;
+                
+                case 4:
+                    System.out.println("Saliendo...");
                     return;
             
                 default:
@@ -42,10 +48,22 @@ public class CRUDCheques {
     }
 
     public static void emitirCheque() {
-        
+        while (true) {
+            int idCuenta = -1;
+            System.out.println("Si quieres salir ingresa 0");
+            System.out.print("Acontinuacion ingresa tu cuenta de cliente: ");
+            idCuenta = input.nextInt();
+
+            if (idCuenta == 0) {
+                System.out.println("Saliendo...");
+                return;
+            }
+
+            chequesFunciones.emitirCheque(idCuenta);
+        }
     }
 
-    public static void listarCheques() {
+    public static void listarChequesCliente() {
         while (true) {
             String identificacion = "";
             System.out.println("Si quieres salir ingresa 'salir'");
@@ -53,10 +71,16 @@ public class CRUDCheques {
             identificacion = input.next();
 
             if (identificacion.toLowerCase().equals("salir")) {
+                System.out.println("Saliendo...");
                 return;
             }
 
-            chequesFunciones.listarCheques(identificacion);
+            chequesFunciones.listarChequesCliente(identificacion);
         }
+    }
+
+    public static void listarChequesEmitidos() {
+        System.out.println("Estos son los cheques que se han emitido");
+        chequesFunciones.listarChequesEmitidos();
     }
 }

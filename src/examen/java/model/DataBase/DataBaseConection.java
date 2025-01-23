@@ -1,4 +1,4 @@
-package examen.java.java;
+package examen.java.model.DataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,8 +28,8 @@ public class DataBaseConection {
 
     private void updateConecction() {
         String host = "jdbc:mysql://localhost:3306/";
-        String user = "campus2023";
-        String password = "campus2023";
+        String user = "root";
+        String password = "3166246542";
         String db = "banco_union";
         String cadConex = host + db;
 

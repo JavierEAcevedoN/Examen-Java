@@ -1,6 +1,8 @@
-package examen.java.java;
+package examen.java.model.DAO;
 
 import java.util.List;
+
+import examen.java.model.DataBase.DataBaseConection;
 
 public abstract class ConnectionDAO {
     protected DataBaseConection conexion;

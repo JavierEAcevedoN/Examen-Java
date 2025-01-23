@@ -1,4 +1,4 @@
-package examen.java.java.DTO.Cheques;
+package examen.java.model.Entities;
 
 import java.sql.Date;
 import java.sql.Timestamp;

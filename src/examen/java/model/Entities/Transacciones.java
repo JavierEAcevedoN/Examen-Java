@@ -1,4 +1,4 @@
-package examen.java.java.DTO.Transacciones;
+package examen.java.model.Entities;
 
 import java.sql.Timestamp;
 

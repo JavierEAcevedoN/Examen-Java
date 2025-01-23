@@ -1,18 +1,19 @@
-package examen.java.java;
+package examen.java.model.Functions;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.imageio.IIOException;
 
 public class CreadorLog {
-    public static void crearLogCheques(String text) {
-        String date = LocalDateTime.now().toLocalDate().toString();
-        String time = LocalDateTime.now().toLocalTime().toString().substring(0,8);
+    public static void crearLogCheques(String text, String tipo) {
+        LocalDateTime now = LocalDateTime.now();
+        String nowF = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss"));
 
-        File archivo = new File(date+"-"+time+"-procesamiento-cheques.txt");
+        File archivo = new File(nowF+tipo);
         FileWriter writer = null;
         PrintWriter pw = null;
         try {

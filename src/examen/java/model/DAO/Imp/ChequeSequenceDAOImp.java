@@ -1,23 +1,24 @@
-package examen.java.java.DAO;
+package examen.java.model.DAO.Imp;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import examen.java.java.ConnectionDAO;
+import examen.java.model.DAO.ConnectionDAO;
+import examen.java.model.Entities.ChequeSequence;
 
-public class ChequeSequenceDAO extends ConnectionDAO{
-    private static ChequeSequenceDAO instance;
+public class ChequeSequenceDAOImp extends ConnectionDAO{
+    private static ChequeSequenceDAOImp instance;
     private List<ChequeSequence> chequeList = new ArrayList<>();
 
-    private ChequeSequenceDAO() {
+    private ChequeSequenceDAOImp() {
         super();
     }
 
-    public static ChequeSequenceDAO getInstance() {
+    public static ChequeSequenceDAOImp getInstance() {
         if (instance == null) {
-            instance = new ChequeSequenceDAO();
+            instance = new ChequeSequenceDAOImp();
         }
         return instance;
     }

@@ -1,30 +1,30 @@
-package examen.java.java.Funciones;
+package examen.java.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import examen.java.java.DTO.Transacciones.Transacciones;
-import examen.java.java.DTO.Clientes.Clientes;
-import examen.java.java.DTO.Clientes.ClientesDTO;
-import examen.java.java.DTO.Cuentas.Cuentas;
-import examen.java.java.DTO.Cuentas.CuentasDTO;
-import examen.java.java.DTO.Transacciones.TransaccionesDTO;
+import examen.java.model.Entities.Transacciones;
+import examen.java.model.Entities.Clientes;
+import examen.java.model.Entities.Cuentas;
+import examen.java.model.DTO.Imp.ClientesDTOImp;
+import examen.java.model.DTO.Imp.CuentasDTOImp;
+import examen.java.model.DTO.Imp.TransaccionesDTOImp;
 
 public class TransaccionesFunciones {
-    ClientesDTO clientesDTO = ClientesDTO.getInstance();
-    CuentasDTO cuentaDTO = CuentasDTO.getInstance();
-    TransaccionesDTO chequesDTO = TransaccionesDTO.getInstance();
+    ClientesDTOImp clientesDTO = ClientesDTOImp.getInstance();
+    CuentasDTOImp cuentaDTO = CuentasDTOImp.getInstance();
+    TransaccionesDTOImp chequesDTO = TransaccionesDTOImp.getInstance();
     List<Clientes> clientesList = clientesDTO.getLista();
     List<Cuentas> cuentasList = cuentaDTO.getLista();
     List<Transacciones> transaccionesList = chequesDTO.getLista();
 
     public void listarClientesSinActividad() {
         // REQ: Funcion Lambda
+        List<Integer> idCT = transaccionesList.stream().map(i->i.getIdCuenta()).collect(Collectors.toList());
+        
         List<Cuentas> cuentasSinTransacciones = new ArrayList<>();
-        for (Transacciones transacciones : transaccionesList) {
-            cuentasSinTransacciones.addAll(cuentasList.stream().filter(i->i.getIdCuenta() != transacciones.getIdCuenta()).collect(Collectors.toList()));
-        }
+        cuentasSinTransacciones.addAll(cuentasList.stream().filter(i->!idCT.contains(i.getIdCuenta())).collect(Collectors.toList()));
 
         List<Clientes> clientesSinTransacciones = new ArrayList<>();
         

@@ -1,8 +1,8 @@
-package examen.java.java.CRUD;
+package examen.java.View;
 
 import java.util.Scanner;
 
-import examen.java.java.Funciones.TransaccionesFunciones;
+import examen.java.Controller.TransaccionesFunciones;
 
 public class CRUDTransacciones {
     private static TransaccionesFunciones transaccionesFunciones;
@@ -26,6 +26,7 @@ public class CRUDTransacciones {
                     break;
                 
                 case 2:
+                    System.out.println("Saliendo...");
                     return;
             
                 default:
